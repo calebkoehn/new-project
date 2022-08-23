@@ -2,7 +2,7 @@
     <div class="right-body">
         <div id="right-body-header">
             <h4 class="preview-text">Preview</h4>
-            <!-- <img src="./assets/icon-show-preview.svg"  alt="show icon"> -->
+            <img src="../assets/icon-show-preview.svg" alt="show icon">
         </div>
         <div class="preview" v-html="compiledPreview"></div>
     </div>
@@ -23,8 +23,6 @@
             }
         }
     }
-
-
 </script>
 
 <style>
@@ -49,6 +47,21 @@
     border: none;
     margin-top: 2%;
     padding-left: 3px;
+}
+@media only screen and (max-width: 600px){
+    div.right-body{
+        display: none;
+    }
+}
+@media only screen and (max-width: 600px){
+    div.preview{
+        display: none;
+    }
+}
+@media only screen and (max-width: 710px){
+    h4.preview-text{
+        display: none;
+    }
 }
 
 </style>

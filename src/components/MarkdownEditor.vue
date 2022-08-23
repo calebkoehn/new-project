@@ -3,7 +3,7 @@
         <div class="left-body">
             <div id="left-body-header">
                 <h4>Markdown</h4>
-                <!-- <span class="preview-mobile"><img src="./assets/"  alt="show icon"></span> -->
+                <span class="preview-mobile"><img src="../assets/icon-show-preview.svg"  alt="show icon"></span>
             </div>
             <textarea class="editor" v-model="input"></textarea>
         </div>
@@ -29,11 +29,6 @@
                 this.$emit('updatePreview', now);
             }
         }
-        // methods: {
-        //     update: function (evt) {
-        //         this.input = evt.target.value;
-        //     }
-        // },
     }
 
 </script>
@@ -58,6 +53,19 @@
     width: 100%;
     border: none;
     margin-top: 2%;
+}
+@media only screen and (min-width: 600px){
+    span.preview-mobile{
+        display: none;
+    }
+}
+@media only screen and (max-width: 600px){
+    div.left-body{
+        display: inline-block;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 </style>
