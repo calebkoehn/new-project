@@ -5,16 +5,15 @@
                 <h4>Markdown</h4>
                 <!-- <span class="preview-mobile"><img src="./assets/"  alt="show icon"></span> -->
             </div>
-            <!-- <textarea class="text-editor"></textarea> -->
-            <textarea class="editor" :value="input" @input="update"></textarea>
+            <textarea class="editor" v-model="input"></textarea>
         </div>
     </div>
 </template>
 
 <script>
-    import marked from 'marked';
+    import {marked} from 'marked';
     export default {
-        // name: 'MarkdownEditor',
+        name: 'MarkdownEditor',
         data() {
             return {
                 input: ""
@@ -25,11 +24,16 @@
                 return marked(this.input, {sanitize: true});
             }
         },
-        methods: {
-            update: function (evt) {
-                this.input = evt.target.value;
+        watch: {
+            compiledPreview(now) {
+                this.$emit('updatePreview', now);
             }
         }
+        // methods: {
+        //     update: function (evt) {
+        //         this.input = evt.target.value;
+        //     }
+        // },
     }
 
 </script>

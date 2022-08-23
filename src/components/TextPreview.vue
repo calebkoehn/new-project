@@ -4,7 +4,6 @@
             <h4 class="preview-text">Preview</h4>
             <!-- <img src="./assets/icon-show-preview.svg"  alt="show icon"> -->
         </div>
-        <!-- <div class="preview"></div> -->
         <div class="preview" v-html="compiledPreview"></div>
     </div>
 </template>
@@ -12,6 +11,17 @@
 <script> 
     export default {
         name: 'TextPreview',
+        props: {
+            compiledPreview: {
+                type: String,
+                default: "",
+            }
+        },
+        watch: {
+            compiledPreview(now) {
+                console.log(now);
+            }
+        }
     }
 
 
