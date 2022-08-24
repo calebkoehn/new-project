@@ -1,20 +1,30 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
+// import savedData from './modules/savedData';
+
 
 Vue.use(Vuex)
 
+
+
 export default new Vuex.Store({
   state: {
-    input: ""
+    data: ""
   },
   getters: {
+    savedData: (state) => state.data
   },
   mutations: {
-    saveChanges: (state, connections) => 
-    {state.storedChanges = connections;}
+    savedChanges: (state, newData) => 
+    {state.data = newData;}
   },
   actions: {
   },
   modules: {
   }
 })
+// export default new Vuex.Store({
+//   modules: {
+//     savedData
+//   }
+// });
