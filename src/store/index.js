@@ -23,8 +23,3 @@ export default new Vuex.Store({
   modules: {
   }
 })
-// export default new Vuex.Store({
-//   modules: {
-//     savedData
-//   }
-// });

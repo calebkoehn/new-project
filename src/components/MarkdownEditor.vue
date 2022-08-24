@@ -18,7 +18,7 @@
             return {
                 input: ""
             }
-        },
+        }, 
         computed: {
             compiledPreview: function () {
                 return marked(this.input, {sanitize: true});
