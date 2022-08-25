@@ -19,9 +19,12 @@
                 input: ""
             }
         }, 
+        mounted: function() {
+            this.input = this.$store.state.data;
+        },
         computed: {
             compiledPreview: function () {
-                return marked(this.input, {sanitize: true});
+                return marked(this.input);
             }
         },
         watch: {

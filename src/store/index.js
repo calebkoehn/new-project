@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import savedData from './modules/savedData';
+import createPersistedState from "vuex-persistedstate";
+
 
 
 Vue.use(Vuex)
@@ -9,17 +10,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    data: ""
+    data: "",
+    file: ""
   },
+  plugins: [createPersistedState()],
   getters: {
-    savedData: (state) => state.data
+    // savedData: (state) => state.data,
+    // savedFile: (state) => state.file
   },
   mutations: {
-    savedChanges: (state, newData) => 
-    {state.data = newData;}
+    savedChanges(state, newData, newFile) {
+      state.data = newData; 
+      state.file = newFile;
+    },
   },
   actions: {
   },
   modules: {
   }
 })
+

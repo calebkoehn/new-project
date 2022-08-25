@@ -19,7 +19,7 @@
         },
         watch: {
             compiledPreview(now) {
-                console.log(now);
+                (now);
             }
         }
     }
