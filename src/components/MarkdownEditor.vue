@@ -11,7 +11,6 @@
 </template>
 
 <script>
-    import {marked} from 'marked';
     export default {
         name: 'MarkdownEditor',
         data() {
@@ -22,13 +21,9 @@
         mounted: function() {
             this.input = this.$store.state.data;
         },
-        computed: {
-            compiledPreview: function () {
-                return marked(this.input);
-            }
-        },
+        
         watch: {
-            compiledPreview(now) {
+            input(now) {
                 this.$emit('updatePreview', now);
             }
         }
@@ -57,7 +52,7 @@
     border: none;
     margin-top: 2%;
 }
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 710px){
     span.preview-mobile{
         display: none;
     }

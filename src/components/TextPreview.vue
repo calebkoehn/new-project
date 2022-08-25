@@ -9,19 +9,21 @@
 </template>
 
 <script> 
+import {marked} from 'marked';
     export default {
+        
         name: 'TextPreview',
         props: {
-            compiledPreview: {
+            input: {
                 type: String,
                 default: "",
             }
         },
-        watch: {
-            compiledPreview(now) {
-                (now);
+        computed: {
+            compiledPreview: function () {
+                return marked(this.input, {sanitizer: true, headerIds: false});
             }
-        }
+        },
     }
 </script>
 
@@ -48,12 +50,12 @@
     margin-top: 2%;
     padding-left: 3px;
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 710px){
     div.right-body{
         display: none;
     }
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 710px){
     div.preview{
         display: none;
     }

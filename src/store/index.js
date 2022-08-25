@@ -15,11 +15,9 @@ export default new Vuex.Store({
   },
   plugins: [createPersistedState()],
   getters: {
-    // savedData: (state) => state.data,
-    // savedFile: (state) => state.file
   },
   mutations: {
-    savedChanges(state, newData, newFile) {
+    savedChanges(state, {newData, newFile}) {
       state.data = newData; 
       state.file = newFile;
     },

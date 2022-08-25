@@ -12,7 +12,7 @@
         </div>
         <div class="container">
             <MarkdownEditor @updatePreview="updatedPreview" /> 
-            <TextPreview :compiledPreview="preview" />
+            <TextPreview :input="preview" />
         </div>
         
     </div>
@@ -35,46 +35,25 @@ export default {
             file: "",
         }
     },
-    // created: function() {
-    //     this.getChanges();
-    // },
     methods: {
         updatedPreview(value) {
             this.preview = value;
         },
         
         saveChanges() {
-            // console.log(this.$store);
-            // const savedChanges = 
-            //     this.$store.state.data;
-            // if (savedChanges) {
-            //     this.preview = savedChanges;
-            // } else {
-            //     this.$store.commit('savedChanges',
-            //         this.preview);
-            // }
-            // console.log(this.$store.state.data)
-
                 this.$store.commit('savedChanges',
-                    this.preview, this.file);
-                console.log(this.$store)
-                console.log(this.$store.state.data)
+                    {newData: this.preview, newFile: this.file});
+                console.log(this.$store);
+                console.log(this.$store.state.data);
                 console.log(this.$store.state.file);
         },
     },
-    // computed: {
-    //     fileName: function () {
-    //         // console.log(this.file);
-    //         return this.file;
-    //     }
-    // },
     watch: {
         file(now) {
             console.log(now);
         }
     },
     mounted: function() {
-        // console.log(this.$store.state.file);
         this.file = this.$store.state.file;
     }
 }
